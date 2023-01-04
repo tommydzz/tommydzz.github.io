@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>绑定域名</title>
+      <link href="/2023/01/04/%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/"/>
+      <url>/2023/01/04/%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/</url>
+      
+        <content type="html"><![CDATA[<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><ol><li>前往阿里云购买域名1年使用权限（需填各类表单，并等待审核）</li><li>填5条解析记录，一条为原先的网站，另外四条为github的ip地址</li><li>前往github的项目页面存储自己的新域名，并强制https访问</li><li>创建CNAME文件，内容为新网址</li><li>现在已经可以访问，但是还未通过安全审核，需要等48小时</li></ol><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>上条blog中的字体，color theme问题已经得到解决</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+            <tag> 网站建立 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>个人主页建立</title>
       <link href="/2023/01/03/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E5%BB%BA%E7%AB%8B/"/>
       <url>/2023/01/03/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E5%BB%BA%E7%AB%8B/</url>
@@ -15,6 +36,8 @@
         <tags>
             
             <tag> web </tag>
+            
+            <tag> 网站建立 </tag>
             
         </tags>
       
