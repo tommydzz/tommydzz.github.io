@@ -14,7 +14,7 @@
 <meta property="og:description" content="平台搭建过程 安装git，版本管理工具 安装nodejs，hexo的前置 在github中建立项目，并取名为XXXXX.github.io（XXXXX为用户名），会自动生成网页 安装hexo，简易的网站部署方案 部署git，使得能够通过命令行直接上传成果 安装主题，这里选择的是cactus。比较著名的hexo主题还有Next，但过于大众化，故选择了cactus这个小众主题。 （备选*）购买域名，取">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-03T13:37:48.134Z">
-<meta property="article:modified_time" content="2023-01-04T05:35:08.912Z">
+<meta property="article:modified_time" content="2023-01-04T07:42:41.300Z">
 <meta property="article:author" content="tommydzz">
 <meta property="article:tag" content="web">
 <meta property="article:tag" content="网站建立">
@@ -160,14 +160,15 @@
 <li>安装主题，这里选择的是cactus。比较著名的hexo主题还有Next，但过于大众化，故选择了cactus这个小众主题。</li>
 <li>（备选*）购买域名，取代.github.io的后缀</li>
 <li>然后就可以愉快的使用网站啦！</li>
+<li>详细过程见<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a></li>
 </ol>
 <h2 id="容易踩坑的点"><a href="#容易踩坑的点" class="headerlink" title="容易踩坑的点"></a>容易踩坑的点</h2><ol>
 <li>使用命令行部署网站的时候，一定要直接在博客的文件夹内进行（即_config.yml所在文件夹）</li>
-<li>使用VPN的时候，上传文件会遇到SSL问题，这时需要<strong>git</strong> config –global http.sslVerify “false” 命</li>
+<li>使用VPN的时候，上传文件会遇到SSL问题，这时需要<strong>git</strong> config –global http.sslVerify “false” 命令</li>
 </ol>
 <h2 id="尚未解决的问题"><a href="#尚未解决的问题" class="headerlink" title="尚未解决的问题"></a>尚未解决的问题</h2><ol>
-<li>切换color_theme： 按照主题介绍进行修改，但没有成果</li>
-<li>切换字体：宋体阅读效果是略差的，因此修改了fonts文件，但发现git并未将该文件的更改部署</li>
+<li>切换color_theme： 按照主题介绍进行修改，但没有成果（已经解决，见1月4日博文）</li>
+<li>切换字体：宋体阅读效果是略差的，因此修改了fonts文件，但发现git并未将该文件的更改部署（已经解决，见1月4日博文）</li>
 </ol>
 
   </div>
@@ -302,6 +303,16 @@
 <!-- Google Analytics -->
 
 <!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?79fa77e44f8651e98b34476ccbd51f37";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
 
 <!-- Cloudflare Analytics -->
 
