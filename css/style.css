@@ -483,7 +483,7 @@ body {
   font-display: swap;
   font-weight: 400;
   font-size: 15px;
-  font-family: "Microsoft YaHei", Verdana, sans-serif;
+  font-family: "Menlo", "Meslo LG", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   flex: 1;
@@ -1412,7 +1412,7 @@ article .content .caption {
   font-display: swap;
   font-weight: 400;
   font-size: 12px;
-  font-family: "Microsoft YaHei", Verdana, sans-serif;
+  font-family: "Menlo", "Meslo LG", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   text-align: center;
