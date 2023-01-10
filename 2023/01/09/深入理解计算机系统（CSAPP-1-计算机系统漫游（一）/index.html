@@ -14,7 +14,7 @@
 <meta property="og:description" content="1.1 信息就是位+上下文今天开始读神作《深入理解计算机系统》 第一章名为“计算机系统漫游”，是对一个简单的hello程序进行深入浅出的分析，探究他在计算机中运行的步骤，可以看作整本书的导论。 12345678#include &lt;stdio.h&gt;int main()&amp;#123;    printf(&quot;hello, world\n&quot;);    return 0;&amp;#1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-09T11:29:53.000Z">
-<meta property="article:modified_time" content="2023-01-10T09:05:02.798Z">
+<meta property="article:modified_time" content="2023-01-10T13:54:40.007Z">
 <meta property="article:author" content="tommydzz">
 <meta property="article:tag" content="深入理解计算机系统">
 <meta property="article:tag" content="读书笔记">
@@ -109,7 +109,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BF%A1%E6%81%AF%E5%B0%B1%E6%98%AF%E4%BD%8D-%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">1.1 信息就是位+上下文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">1.2 程序被其他程序翻译成不同的格式</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BF%A1%E6%81%AF%E5%B0%B1%E6%98%AF%E4%BD%8D-%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">1.1 信息就是位+上下文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">1.2 程序被其他程序翻译成不同的格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E4%BA%86%E8%A7%A3%E7%BC%96%E8%AF%91%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E6%98%AF%E5%A4%A7%E6%9C%89%E7%9B%8A%E5%A4%84%E7%9A%84"><span class="toc-number">3.</span> <span class="toc-text">1.3 了解编译系统如何工作是大有益处的</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -166,6 +166,12 @@
 <li><strong>汇编阶段</strong>：汇编器将hello.s翻译成机器语言指令，打包成一种叫做<strong>可重定位目标程序</strong>的格式，并保存在目标文件hello.o中，它是二进制文件。</li>
 <li><strong>链接阶段</strong>：hello程序调用了printf函数，是标准C语言库中的函数。它存在于一个名为printf.o的单独的预编译好了的目标文件中，这个文件必须合并到hello.o程序，这个步骤由<strong>链接器</strong>处理，生成可执行文件，从而可以被加载到内存中执行。</li>
 </ol>
+<h2 id="1-3-了解编译系统如何工作是大有益处的"><a href="#1-3-了解编译系统如何工作是大有益处的" class="headerlink" title="1.3 了解编译系统如何工作是大有益处的"></a>1.3 了解编译系统如何工作是大有益处的</h2><p>了解编译系统工作原理的作用：</p>
+<ol>
+<li><strong>优化程序性能</strong>：现代编译器都是成熟的工具，可以写出很好的代码，但了解编译系统还是可以让我们做出更好的C语言编码选择</li>
+<li><strong>理解链接时出现的错误</strong>：完成大型项目的时候经常会有报错：无法解析某个引用。同时，全局变量和静态变量的区别，动态库和静态库之间的区别等都和此有关。</li>
+<li><strong>避免安全漏洞</strong>：了解堆栈原理可以避免缓冲区溢出错误</li>
+</ol>
 
   </div>
 </article>
@@ -193,7 +199,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BF%A1%E6%81%AF%E5%B0%B1%E6%98%AF%E4%BD%8D-%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">1.1 信息就是位+上下文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">1.2 程序被其他程序翻译成不同的格式</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BF%A1%E6%81%AF%E5%B0%B1%E6%98%AF%E4%BD%8D-%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">1.1 信息就是位+上下文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">1.2 程序被其他程序翻译成不同的格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E4%BA%86%E8%A7%A3%E7%BC%96%E8%AF%91%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E6%98%AF%E5%A4%A7%E6%9C%89%E7%9B%8A%E5%A4%84%E7%9A%84"><span class="toc-number">3.</span> <span class="toc-text">1.3 了解编译系统如何工作是大有益处的</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

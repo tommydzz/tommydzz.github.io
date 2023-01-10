@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="1.3 了解编译系统如何工作是大有益处的了解编译系统工作原理的作用：  优化程序性能：现代编译器都是成熟的工具，可以写出很好的代码，但了解编译系统还是可以让我们做出更好的C语言编码选择 理解链接时出现的错误：完成大型项目的时候经常会有报错：无法解析某个引用。同时，全局变量和静态变量的区别，动态库和静态库之间的区别等都和此有关。 避免安全漏洞：了解堆栈原理可以避免缓冲区溢出错误  1.4 处理器读并">
+    <meta name="description" content="1.4 处理器读并解释储存在内存中的指令1.4.1 系统的硬件组成在执行hello这个可执行程序后，需要了解其如何在硬件中运作，以典型的硬件组织为例：  总线：贯穿整个系统的是一组电子管道，称为总线，负责携带信息字节并在各个部件中传递。传递的字节长度为4或8，前者即32位系统，后者即64位系统。  I&#x2F;O设备：I&#x2F;O设备是系统于外部世界的联系通道，示例设备包含4个I&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解计算机系统（CSAPP）#2 计算机系统漫游（二）">
 <meta property="og:url" content="http://example.com/2023/01/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP-2-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%BC%AB%E6%B8%B8%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
 <meta property="og:site_name" content="tommydzz">
-<meta property="og:description" content="1.3 了解编译系统如何工作是大有益处的了解编译系统工作原理的作用：  优化程序性能：现代编译器都是成熟的工具，可以写出很好的代码，但了解编译系统还是可以让我们做出更好的C语言编码选择 理解链接时出现的错误：完成大型项目的时候经常会有报错：无法解析某个引用。同时，全局变量和静态变量的区别，动态库和静态库之间的区别等都和此有关。 避免安全漏洞：了解堆栈原理可以避免缓冲区溢出错误  1.4 处理器读并">
+<meta property="og:description" content="1.4 处理器读并解释储存在内存中的指令1.4.1 系统的硬件组成在执行hello这个可执行程序后，需要了解其如何在硬件中运作，以典型的硬件组织为例：  总线：贯穿整个系统的是一组电子管道，称为总线，负责携带信息字节并在各个部件中传递。传递的字节长度为4或8，前者即32位系统，后者即64位系统。  I&#x2F;O设备：I&#x2F;O设备是系统于外部世界的联系通道，示例设备包含4个I&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-10T04:52:39.000Z">
-<meta property="article:modified_time" content="2023-01-10T09:36:54.503Z">
+<meta property="article:modified_time" content="2023-01-10T13:54:20.957Z">
 <meta property="article:author" content="tommydzz">
 <meta property="article:tag" content="深入理解计算机系统">
 <meta property="article:tag" content="读书笔记">
@@ -107,7 +107,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E4%BA%86%E8%A7%A3%E7%BC%96%E8%AF%91%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E6%98%AF%E5%A4%A7%E6%9C%89%E7%9B%8A%E5%A4%84%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">1.3 了解编译系统如何工作是大有益处的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E5%A4%84%E7%90%86%E5%99%A8%E8%AF%BB%E5%B9%B6%E8%A7%A3%E9%87%8A%E5%82%A8%E5%AD%98%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">1.4 处理器读并解释储存在内存中的指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90"><span class="toc-number">2.1.</span> <span class="toc-text">1.4.1 系统的硬件组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-%E8%BF%90%E8%A1%8Chello%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">1.4.2 运行hello程序</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E5%A4%84%E7%90%86%E5%99%A8%E8%AF%BB%E5%B9%B6%E8%A7%A3%E9%87%8A%E5%82%A8%E5%AD%98%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">1.4 处理器读并解释储存在内存中的指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90"><span class="toc-number">1.1.</span> <span class="toc-text">1.4.1 系统的硬件组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-%E8%BF%90%E8%A1%8Chello%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">1.4.2 运行hello程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E8%87%B3%E5%85%B3%E9%87%8D%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">1.5 高速缓存至关重要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E5%BD%A2%E6%88%90%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">1.6 存储设备形成层次结构</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -151,13 +151,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="1-3-了解编译系统如何工作是大有益处的"><a href="#1-3-了解编译系统如何工作是大有益处的" class="headerlink" title="1.3 了解编译系统如何工作是大有益处的"></a>1.3 了解编译系统如何工作是大有益处的</h2><p>了解编译系统工作原理的作用：</p>
-<ol>
-<li><strong>优化程序性能</strong>：现代编译器都是成熟的工具，可以写出很好的代码，但了解编译系统还是可以让我们做出更好的C语言编码选择</li>
-<li><strong>理解链接时出现的错误</strong>：完成大型项目的时候经常会有报错：无法解析某个引用。同时，全局变量和静态变量的区别，动态库和静态库之间的区别等都和此有关。</li>
-<li><strong>避免安全漏洞</strong>：了解堆栈原理可以避免缓冲区溢出错误</li>
-</ol>
-<h2 id="1-4-处理器读并解释储存在内存中的指令"><a href="#1-4-处理器读并解释储存在内存中的指令" class="headerlink" title="1.4 处理器读并解释储存在内存中的指令"></a>1.4 处理器读并解释储存在内存中的指令</h2><h3 id="1-4-1-系统的硬件组成"><a href="#1-4-1-系统的硬件组成" class="headerlink" title="1.4.1 系统的硬件组成"></a>1.4.1 系统的硬件组成</h3><p>在执行hello这个可执行程序后，需要了解其如何在硬件中运作，以典型的硬件组织为例：</p>
+    <h2 id="1-4-处理器读并解释储存在内存中的指令"><a href="#1-4-处理器读并解释储存在内存中的指令" class="headerlink" title="1.4 处理器读并解释储存在内存中的指令"></a>1.4 处理器读并解释储存在内存中的指令</h2><h3 id="1-4-1-系统的硬件组成"><a href="#1-4-1-系统的硬件组成" class="headerlink" title="1.4.1 系统的硬件组成"></a>1.4.1 系统的硬件组成</h3><p>在执行hello这个可执行程序后，需要了解其如何在硬件中运作，以典型的硬件组织为例：</p>
 <ol>
 <li><p><strong>总线</strong>：贯穿整个系统的是一组电子管道，称为总线，负责携带信息字节并在各个部件中传递。传递的字节长度为4或8，前者即32位系统，后者即64位系统。</p>
 </li>
@@ -175,6 +169,10 @@
 <li><strong>从磁盘加载可执行文件到主存</strong>：随后shell执行指令加载可执行的hello文件，将hello目标文件的代码和数据从磁盘复制到主存。这需要用到**直接存储器存取(DMA)**技术。</li>
 <li><strong>将输出字符串从存储器写到显示器</strong>：处理器开始执行hello程序中的机器语言指令，使得hello world从主存复制到寄存器，再复制到显示设备上。</li>
 </ol>
+<h2 id="1-5-高速缓存至关重要"><a href="#1-5-高速缓存至关重要" class="headerlink" title="1.5 高速缓存至关重要"></a>1.5 高速缓存至关重要</h2><p>由之前hello程序便可以看出，数据的移动是程序运行中极为关键的步骤。程序加载时，程序从磁盘复制到主存，又从主存复制到处理器。寄存器只能存储几百字节的信息，而主存中可以储存几十亿，但前者的速度是后者的百倍。</p>
+<p>针对这种差异，设计者采取了一种称作<strong>高速缓存存储器（cache）</strong>的存储设备，作为主存和寄存器的缓冲。对于LI高速缓存，其容量有数万字节，速度几乎和寄存器相同。对于L2高速缓存，其容量有百万字节，速度比L1慢5倍，但仍远远快于主存。这两者均由<strong>静态随机访问存储器（SRAM）</strong>实现。让缓存里存放经常访问的数据，可以大大加快程序运行的效率。</p>
+<h2 id="1-6-存储设备形成层次结构"><a href="#1-6-存储设备形成层次结构" class="headerlink" title="1.6 存储设备形成层次结构"></a>1.6 存储设备形成层次结构</h2><p>存储设备组成了层次结构。在这个层次结构之中，容量越大，速度越慢，也越便宜。且上一级保存来自下一级的数据:</p>
+<p><strong>0</strong>-寄存器 <strong>1</strong>- L1高速缓存 2-L2高速缓存 <strong>3</strong>- L3高速缓存 <strong>4</strong>-主存 <strong>5</strong>-本地磁盘 <strong>6</strong>-Web服务器</p>
 
   </div>
 </article>
@@ -202,7 +200,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E4%BA%86%E8%A7%A3%E7%BC%96%E8%AF%91%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E6%98%AF%E5%A4%A7%E6%9C%89%E7%9B%8A%E5%A4%84%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">1.3 了解编译系统如何工作是大有益处的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E5%A4%84%E7%90%86%E5%99%A8%E8%AF%BB%E5%B9%B6%E8%A7%A3%E9%87%8A%E5%82%A8%E5%AD%98%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">1.4 处理器读并解释储存在内存中的指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90"><span class="toc-number">2.1.</span> <span class="toc-text">1.4.1 系统的硬件组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-%E8%BF%90%E8%A1%8Chello%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">1.4.2 运行hello程序</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E5%A4%84%E7%90%86%E5%99%A8%E8%AF%BB%E5%B9%B6%E8%A7%A3%E9%87%8A%E5%82%A8%E5%AD%98%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">1.4 处理器读并解释储存在内存中的指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90"><span class="toc-number">1.1.</span> <span class="toc-text">1.4.1 系统的硬件组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-%E8%BF%90%E8%A1%8Chello%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">1.4.2 运行hello程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E8%87%B3%E5%85%B3%E9%87%8D%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">1.5 高速缓存至关重要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E5%BD%A2%E6%88%90%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">1.6 存储设备形成层次结构</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
