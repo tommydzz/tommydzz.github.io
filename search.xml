@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>深入理解计算机系统（CSAPP）#5 整数表示</title>
+      <link href="/2023/01/13/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP%EF%BC%89-5-%E6%95%B4%E6%95%B0%E8%A1%A8%E7%A4%BA/"/>
+      <url>/2023/01/13/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP%EF%BC%89-5-%E6%95%B4%E6%95%B0%E8%A1%A8%E7%A4%BA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="2-2-整数表示"><a href="#2-2-整数表示" class="headerlink" title="2.2 整数表示"></a>2.2 整数表示</h2><p>2.2.1于程序设计中涉及，不再赘述</p><h3 id="2-2-2-无符号整数的编码"><a href="#2-2-2-无符号整数的编码" class="headerlink" title="2.2.2 无符号整数的编码"></a>2.2.2 无符号整数的编码</h3><p>假设一个整数数据类型有w位，我们可以将它看作向量x，以下是<strong>无符号数编码</strong>的定义：<br>$$<br>对于\vec {x}&#x3D;[x_{w-1},x_{w-2},…,x_{0}]\<br>B2U_{w}(\vec {x})\overset{def}{&#x3D;}\sum_{i&#x3D;1}^{w-1}x_{i}2^{i}<br>$$<br>容易证明，无符号编码函数是一个双射，具有唯一性</p><h3 id="2-2-3-补码编码"><a href="#2-2-3-补码编码" class="headerlink" title="2.2.3 补码编码"></a>2.2.3 补码编码</h3><p>对于许多应用，我们还希望能够表示负数值，最常见的表示方式便是<strong>补码编码</strong>，它将最高位字符定义为符号位，表示正负。其他的方式如<strong>反码</strong>，<strong>原码</strong>等不常用，便不再赘述。<br>$$<br>对于\vec {x}&#x3D;[x_{w-1},x_{w-2},…,x_{0}]\B2T_{w}(\vec {x})\overset{def}{&#x3D;}-x_{w-1}2^{w-1}+\sum_{i&#x3D;1}^{w-2}x_{i}2^{i}<br>$$<br>容易证明，无符号编码函数是一个双射，具有唯一性</p><p>需要注意的是，补码的范围并不对称，负数的可表示范围比整数多一，这容易导致程序的细微问题。</p><h3 id="2-2-4-有符号数和无符号数之间的转换"><a href="#2-2-4-有符号数和无符号数之间的转换" class="headerlink" title="2.2.4 有符号数和无符号数之间的转换"></a>2.2.4 有符号数和无符号数之间的转换</h3><p>C语言支持有符号数和无符号数之间的强制转换，规则公式如下：<br>$$<br>补码转换为无符号数:\<br>T2U_w(x)&#x3D;\begin{cases}<br>x+2^w &amp;x&lt;0\<br>x &amp;x\geq0<br>\end{cases}\<br>无符号数转为补码:\<br>U2T_w(u)&#x3D;\begin{cases}<br>u &amp;x\leq0\<br>u-2^w &amp;x&gt;0<br>\end{cases}<br>$$</p><h3 id="2-2-5-C语言中的有符号数与无符号数"><a href="#2-2-5-C语言中的有符号数与无符号数" class="headerlink" title="2.2.5 C语言中的有符号数与无符号数"></a>2.2.5 C语言中的有符号数与无符号数</h3><p>C语言中创建一个整数常量，默认是有符号数。若要创建无符号常量，必须加上后缀字符u</p><p>对于C语言，当执行一个运算时，如果它的一个运算数是有符号的而另一个是无符号的，那么C语言会隐式地将有符号参数强制转换为无符号数。</p><h3 id="2-2-6-扩展一个数字的位表示"><a href="#2-2-6-扩展一个数字的位表示" class="headerlink" title="2.2.6 扩展一个数字的位表示"></a>2.2.6 扩展一个数字的位表示</h3><p>要将一个无符号数转换为一个更大的数据类型，只需要在开头添加0，这种运算被称为<strong>零扩展</strong>。要将一个补码数子转换为更大的数据类型，需要在表示中添加最高有效位的值，被称为<strong>符号扩展</strong>。<br>$$<br>无符号数的零扩展:\<br>定义宽度为w的位向量\vec {u}&#x3D;[u_{w-1},u_{w-2},…,u_{0}]和宽度为w’的位向量\vec {u’}&#x3D;[0,…,0,u_{w-1},u_{w-2},…,u_{0}],其中w’&gt;w,则\B2U_w{(\vec u)}&#x3D;B2U_{w’}(\vec u’)\<br>补码数的符号扩展:\<br>定义宽度为w的位向量\vec {x}&#x3D;[x_{w-1},x_{w-2},…,x_{0}]和宽度为w’的位向量\vec {x’}&#x3D;[x_{w-1},…,x_{w-1},x_{w-1},x_{w-2},…,u_{0}],其中w’&gt;w,则\B2U_w{(\vec x)}&#x3D;B2U_{w’}(\vec x’)\<br>$$</p><h3 id="2-2-7-截断数字"><a href="#2-2-7-截断数字" class="headerlink" title="2.2.7 截断数字"></a>2.2.7 截断数字</h3><p>对于一个w位的数，将其截断为k位，丢弃其高w-k位。<br>$$<br>截断无符号数:\<br>令x&#x3D;B2U_w(\vec x),x’&#x3D;B2U_k(\vec x’),则x’&#x3D;x\mod2^k\<br>截断补码数:\<br>令x&#x3D;B2U_w(\vec x),x’&#x3D;B2T_k(\vec x’),则x’&#x3D;U2T_k(x\mod2^k)\<br>$$</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 深入理解计算机系统 </tag>
+            
+            <tag> 读书笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深入理解计算机系统（CSAPP）#4 信息存储</title>
       <link href="/2023/01/12/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP%EF%BC%89-4-%E4%BF%A1%E6%81%AF%E5%AD%98%E5%82%A8/"/>
       <url>/2023/01/12/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP%EF%BC%89-4-%E4%BF%A1%E6%81%AF%E5%AD%98%E5%82%A8/</url>
