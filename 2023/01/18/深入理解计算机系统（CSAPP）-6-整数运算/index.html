@@ -14,7 +14,7 @@
 <meta property="og:description" content="2.3 整数运算2.3.1 无符号加法1.无符号数的加法$$对满足0\leq x,y &lt;2^w的x和y有:\x+^u_w{y}&#x3D;\begin{cases}x+y,x+y&lt;2^w\x+y-2^w,2^w\leq x+y&lt;2^{w+1}\end{cases}$$ 2. 无符号数加法中的溢出$$对在范围0\leq x,y\leq UMax_w中的x和y,令s\overset{">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-18T01:51:28.000Z">
-<meta property="article:modified_time" content="2023-01-18T08:23:53.877Z">
+<meta property="article:modified_time" content="2023-01-18T10:29:38.301Z">
 <meta property="article:author" content="tommydzz">
 <meta property="article:tag" content="深入理解计算机系统">
 <meta property="article:tag" content="读书笔记">
@@ -87,6 +87,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2023/01/18/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP%EF%BC%89-7-%E6%B5%AE%E7%82%B9%E6%95%B0/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="下一篇" href="/2023/01/13/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP%EF%BC%89-5-%E6%95%B4%E6%95%B0%E8%A1%A8%E7%A4%BA/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -162,7 +164,7 @@
 
   <div class="content" itemprop="articleBody">
     <h2 id="2-3-整数运算"><a href="#2-3-整数运算" class="headerlink" title="2.3 整数运算"></a>2.3 整数运算</h2><h3 id="2-3-1-无符号加法"><a href="#2-3-1-无符号加法" class="headerlink" title="2.3.1 无符号加法"></a>2.3.1 无符号加法</h3><h4 id="1-无符号数的加法"><a href="#1-无符号数的加法" class="headerlink" title="1.无符号数的加法"></a>1.无符号数的加法</h4><p>$$<br>对满足0\leq x,y &lt;2^w的x和y有:\<br>x+^u_w{y}&#x3D;\begin{cases}<br>x+y,x+y&lt;2^w\<br>x+y-2^w,2^w\leq x+y&lt;2^{w+1}<br>\end{cases}<br>$$</p>
-<h4 id="2-无符号数加法中的溢出"><a href="#2-无符号数加法中的溢出" class="headerlink" title="2. 无符号数加法中的溢出"></a>2. 无符号数加法中的溢出</h4><p>$$<br>对在范围0\leq x,y\leq UMax_w中的x和y,令s\overset{def}{&#x3D;}x+^u_wy。\则对计算s，当且仅当s&lt;x或s&lt;y时，发生了溢出<br>$$</p>
+<h4 id="2-无符号数加法中的溢出"><a href="#2-无符号数加法中的溢出" class="headerlink" title="2. 无符号数加法中的溢出"></a>2. 无符号数加法中的溢出</h4><p>$$<br>对在范围0\leq x,y\leq UMax_w中的x和y,令s\overset{def}{&#x3D;}x+^u_wy\则对计算s，当且仅当s&lt;x或s&lt;y时，发生了溢出<br>$$</p>
 <h4 id="3-无符号数求反"><a href="#3-无符号数求反" class="headerlink" title="3. 无符号数求反"></a>3. 无符号数求反</h4><p>$$<br>-^u_wx&#x3D;\begin{cases}<br>x,x&#x3D;0\<br>2^w-x,x&gt;0<br>\end{cases}<br>$$</p>
 <h3 id="2-3-2-补码加法"><a href="#2-3-2-补码加法" class="headerlink" title="2.3.2 补码加法"></a>2.3.2 补码加法</h3><h4 id="1-补码加法"><a href="#1-补码加法" class="headerlink" title="1. 补码加法"></a>1. 补码加法</h4><p>$$<br>对满足-2^{w-1}\leq x,y\leq 2^{w-1}-1的整数x,y:\<br>x+^t_wy&#x3D;\begin {cases}x+y-2^w,2^{w-1}\leq x+y\<br>x+y, -2^{w-1}\leq x+y &lt; 2^{w-1}\<br>x+y+2^w, x+y&lt;-2^{w-1}<br>\end{cases}<br>$$</p>
 <h4 id="2-补码加法中的溢出"><a href="#2-补码加法中的溢出" class="headerlink" title="2. 补码加法中的溢出"></a>2. 补码加法中的溢出</h4><p>$$<br>对满足TMin_w \leq x,y\leq TMax_w的x,y,s\overset{def}{&#x3D;}x+^t_wy\<br>x&gt;0,y&gt;0,s\leq 0\iff s正溢出\<br>x&lt;0,y&lt;0,s\geq 0\iff s负溢出<br>$$</p>
