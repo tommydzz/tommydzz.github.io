@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="2.4 浮点数2.4.1略 2.4.2 ，2.4.3 IEEE浮点表示$$IEEE浮点标准\V&#x3D;(-1)^sM2^E$$ 下面对这个公式进行解释：  符号：s决定这个数是负数（s&#x3D;1）还是负数（s&#x3D;0），0作为特殊情况处理。单独的符号位s直接编码s。 尾数：M是一个二进制小数，范围为12-ε或者01-ε。n位小数字段frac编码位数M。 阶码：E的作用是对浮点数加权，">
+    <meta name="description" content="2.4 浮点数2.4.1略 2.4.2 ，2.4.3 IEEE浮点表示$$IEEE浮点标准 V&#x3D;(-1)^sM2^E$$ 下面对这个公式进行解释：  符号：s决定这个数是负数（s&#x3D;1）还是负数（s&#x3D;0），0作为特殊情况处理。单独的符号位s直接编码s。 尾数：M是一个二进制小数，范围为12-ε或者01-ε。n位小数字段frac编码位数M。 阶码：E的作用是对浮点数加权，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解计算机系统（CSAPP）#7 浮点数">
 <meta property="og:url" content="http://example.com/2023/01/18/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP%EF%BC%89-7-%E6%B5%AE%E7%82%B9%E6%95%B0/index.html">
 <meta property="og:site_name" content="tommydzz">
-<meta property="og:description" content="2.4 浮点数2.4.1略 2.4.2 ，2.4.3 IEEE浮点表示$$IEEE浮点标准\V&#x3D;(-1)^sM2^E$$ 下面对这个公式进行解释：  符号：s决定这个数是负数（s&#x3D;1）还是负数（s&#x3D;0），0作为特殊情况处理。单独的符号位s直接编码s。 尾数：M是一个二进制小数，范围为12-ε或者01-ε。n位小数字段frac编码位数M。 阶码：E的作用是对浮点数加权，">
+<meta property="og:description" content="2.4 浮点数2.4.1略 2.4.2 ，2.4.3 IEEE浮点表示$$IEEE浮点标准 V&#x3D;(-1)^sM2^E$$ 下面对这个公式进行解释：  符号：s决定这个数是负数（s&#x3D;1）还是负数（s&#x3D;0），0作为特殊情况处理。单独的符号位s直接编码s。 尾数：M是一个二进制小数，范围为12-ε或者01-ε。n位小数字段frac编码位数M。 阶码：E的作用是对浮点数加权，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-18T10:02:47.000Z">
-<meta property="article:modified_time" content="2023-01-18T10:51:58.313Z">
+<meta property="article:modified_time" content="2023-01-19T03:06:48.841Z">
 <meta property="article:author" content="tommydzz">
 <meta property="article:tag" content="深入理解计算机系统">
 <meta property="article:tag" content="读书笔记">
@@ -117,7 +117,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">2.4 浮点数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%EF%BC%8C2-4-3-IEEE%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.</span> <span class="toc-text">2.4.2 ，2.4.3 IEEE浮点表示</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">2.4 浮点数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%EF%BC%8C2-4-3-IEEE%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.</span> <span class="toc-text">2.4.2 ，2.4.3 IEEE浮点表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-%E8%88%8D%E5%85%A5"><span class="toc-number">1.2.</span> <span class="toc-text">2.4.4 舍入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-5-%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.</span> <span class="toc-text">2.4.5 浮点运算</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -162,7 +162,7 @@
 
   <div class="content" itemprop="articleBody">
     <h2 id="2-4-浮点数"><a href="#2-4-浮点数" class="headerlink" title="2.4 浮点数"></a>2.4 浮点数</h2><p>2.4.1略</p>
-<h3 id="2-4-2-，2-4-3-IEEE浮点表示"><a href="#2-4-2-，2-4-3-IEEE浮点表示" class="headerlink" title="2.4.2 ，2.4.3 IEEE浮点表示"></a>2.4.2 ，2.4.3 IEEE浮点表示</h3><p>$$<br>IEEE浮点标准\V&#x3D;(-1)^sM2^E<br>$$</p>
+<h3 id="2-4-2-，2-4-3-IEEE浮点表示"><a href="#2-4-2-，2-4-3-IEEE浮点表示" class="headerlink" title="2.4.2 ，2.4.3 IEEE浮点表示"></a>2.4.2 ，2.4.3 IEEE浮点表示</h3><p>$$<br>IEEE浮点标准 V&#x3D;(-1)^sM2^E<br>$$</p>
 <p>下面对这个公式进行解释：</p>
 <ol>
 <li><strong>符号</strong>：s决定这个数是负数（s&#x3D;1）还是负数（s&#x3D;0），0作为特殊情况处理。单独的符号位s直接编码s。</li>
@@ -174,9 +174,23 @@
 <ol>
 <li><strong>规格化的值</strong>：即exp的位模式不全为0，也不全为1时</li>
 <li><strong>非规格化的值</strong>：即exp全为0。其可以提供表示0的方法，或是表示那些非常接近0.0的数</li>
-<li><strong>无穷大</strong>：</li>
-<li><strong>NaN</strong>：</li>
+<li><strong>无穷大</strong>：即exp全为1，frac全为0</li>
+<li><strong>NaN</strong>：即exp全为1，frac不为0</li>
 </ol>
+<h3 id="2-4-4-舍入"><a href="#2-4-4-舍入" class="headerlink" title="2.4.4 舍入"></a>2.4.4 舍入</h3><p>由于二进制数精度问题，在大多数情况下浮点数只能近似表示一个实数，因此舍入十分重要</p>
+<ol>
+<li><strong>向偶数舍入</strong>（默认）：将数字向上或向下舍入，使结果的最低有效数字是偶数</li>
+<li>向零舍入：用于确定边界</li>
+<li>向下舍入：用于确定边界</li>
+<li>向上舍入：用于确定边界</li>
+</ol>
+<h3 id="2-4-5-浮点运算"><a href="#2-4-5-浮点运算" class="headerlink" title="2.4.5 浮点运算"></a>2.4.5 浮点运算</h3><p>由于精度问题，浮点运算只能提供舍入后的结果。由此可知浮点运算的一些重要特性：</p>
+<ol>
+<li>浮点加法，乘法不具有结合律</li>
+<li>浮点加法，乘法满足单调性（无符号和补码不具有）</li>
+<li>浮点乘法不具有分配律</li>
+</ol>
+<p>这对科学运算的程序员造成了很大的困扰</p>
 
   </div>
 </article>
@@ -204,7 +218,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">2.4 浮点数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%EF%BC%8C2-4-3-IEEE%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.</span> <span class="toc-text">2.4.2 ，2.4.3 IEEE浮点表示</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">2.4 浮点数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%EF%BC%8C2-4-3-IEEE%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.</span> <span class="toc-text">2.4.2 ，2.4.3 IEEE浮点表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-%E8%88%8D%E5%85%A5"><span class="toc-number">1.2.</span> <span class="toc-text">2.4.4 舍入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-5-%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.</span> <span class="toc-text">2.4.5 浮点运算</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
