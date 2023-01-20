@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>latex换行问题</title>
+      <link href="/2023/01/20/latex%E6%8D%A2%E8%A1%8C%E9%97%AE%E9%A2%98/"/>
+      <url>/2023/01/20/latex%E6%8D%A2%E8%A1%8C%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>latex常用的换行符号是&#x2F;&#x2F;</p><p>然而在网站上却无法正常显示，正在想方设法解决。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+            <tag> 网站建立 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深入理解计算机系统（CSAPP）#7 浮点数</title>
       <link href="/2023/01/18/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP%EF%BC%89-7-%E6%B5%AE%E7%82%B9%E6%95%B0/"/>
       <url>/2023/01/18/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%EF%BC%88CSAPP%EF%BC%89-7-%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
