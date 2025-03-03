@@ -2,25 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://examplesite.com/tags/first/</loc>
+    <loc>https://tommydzz.github.io/about/</loc>
+    <lastmod>2025-03-03T13:56:11+08:00</lastmod>
+  </url><url>
+    <loc>https://tommydzz.github.io/</loc>
+    <lastmod>2025-03-03T13:56:11+08:00</lastmod>
+  </url><url>
+    <loc>https://tommydzz.github.io/tags/first/</loc>
     <lastmod>2025-03-02T14:43:20+08:00</lastmod>
   </url><url>
-    <loc>https://examplesite.com/posts/</loc>
+    <loc>https://tommydzz.github.io/posts/</loc>
     <lastmod>2025-03-02T14:43:20+08:00</lastmod>
   </url><url>
-    <loc>https://examplesite.com/tags/</loc>
+    <loc>https://tommydzz.github.io/tags/</loc>
     <lastmod>2025-03-02T14:43:20+08:00</lastmod>
   </url><url>
-    <loc>https://examplesite.com/posts/your-new-post/</loc>
+    <loc>https://tommydzz.github.io/posts/your-new-post/</loc>
     <lastmod>2025-03-02T14:43:20+08:00</lastmod>
   </url><url>
-    <loc>https://examplesite.com/</loc>
-    <lastmod>2025-03-02T14:43:20+08:00</lastmod>
+    <loc>https://tommydzz.github.io/categories/</loc>
   </url><url>
-    <loc>https://examplesite.com/about/</loc>
-  </url><url>
-    <loc>https://examplesite.com/categories/</loc>
-  </url><url>
-    <loc>https://examplesite.com/search/</loc>
+    <loc>https://tommydzz.github.io/search/</loc>
   </url>
 </urlset>

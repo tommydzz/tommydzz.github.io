@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Zizhen Dong&#39;s blog</title>
-    <link>https://examplesite.com/tags/</link>
+    <link>https://tommydzz.github.io/tags/</link>
     <description>Recent content in Tags on Zizhen Dong&#39;s blog</description>
     <image>
       <title>Zizhen Dong&#39;s blog</title>
-      <url>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://examplesite.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://tommydzz.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://tommydzz.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Mar 2025 14:43:20 +0800</lastBuildDate>
-    <atom:link href="https://examplesite.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tommydzz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First</title>
-      <link>https://examplesite.com/tags/first/</link>
+      <link>https://tommydzz.github.io/tags/first/</link>
       <pubDate>Sun, 02 Mar 2025 14:43:20 +0800</pubDate>
-      <guid>https://examplesite.com/tags/first/</guid>
+      <guid>https://tommydzz.github.io/tags/first/</guid>
       <description></description>
     </item>
   </channel>
