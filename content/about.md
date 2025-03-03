@@ -1,7 +1,6 @@
 ---
-title: "About" # in any language you want
-layout: "about" # necessary for search
-# url: "/archive"
-# description: "Description for Search"
-summary: "about"
+title: "About"
+date: 2025-03-03T13:56:11+08:00
+draft: false
 ---
+test
