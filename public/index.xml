@@ -18,7 +18,51 @@
       <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 03 Mar 2025 13:56:11 +0800</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;test&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;about-me&#34;&gt;About me&lt;/h2&gt;
+&lt;p&gt;He is currently a junior student majoring in Software Engineering at Fudan University. He is now studying advanced Web technology, cloud computing and virtualization, big data platform, information safety, software testing, machine learning systems and data mining.&lt;/p&gt;
+&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
+&lt;p&gt;E-mail(Work Only): &lt;a href=&#34;mailto:tommydzz@proton.me&#34;&gt;tommydzz@proton.me&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please use your real name and indicate your intention.&lt;/p&gt;
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Duration&lt;/th&gt;
+          &lt;th&gt;Degree&lt;/th&gt;
+          &lt;th&gt;Dept.&lt;/th&gt;
+          &lt;th&gt;Affiliation&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;2022.09-2026.07(expected)&lt;/td&gt;
+          &lt;td&gt;Bachelor&lt;/td&gt;
+          &lt;td&gt;School of Computer Science and Technology&lt;/td&gt;
+          &lt;td&gt;Fudan University&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;jobs&#34;&gt;Jobs&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Duration&lt;/th&gt;
+          &lt;th&gt;Title&lt;/th&gt;
+          &lt;th&gt;Affiliation&lt;/th&gt;
+          &lt;th&gt;Job&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;2024.07-2025.01&lt;/td&gt;
+          &lt;td&gt;Intern&lt;/td&gt;
+          &lt;td&gt;SAP&lt;/td&gt;
+          &lt;td&gt;AI software development&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;
+&lt;p&gt;C/C++/Python/Java/JS&lt;/p&gt;</description>
     </item>
     <item>
       <title>Your New Post</title>

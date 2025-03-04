@@ -15,7 +15,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Zizhen Dong's blog
-  description: "臭打游戏的"
+  description: ""
   keywords: [Blog, Portfolio, PaperMod]
   author: Zizhen Dong
   # author: ["Me", "You"] # multiple authors
@@ -58,11 +58,11 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: Zizhen Dong's blog
-    subtitle: "臭打游戏的"
-    imageUrl: images/profile.jpg
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: my image
+    subtitle: "Whereof one cannot speak, thereof one must be silent."
+    imageUrl: images/profile.png
+    imageWidth: 150
+    imageHeight: 150
+    imageTitle: profile
     buttons:
       - name: About
         url: /about/
@@ -77,12 +77,12 @@ params:
     Content: Welcome to my blog
 
   socialIcons:
-    - name: x
-      url: "https://x.com/"
+    - name: zhihu
+      url: https://www.zhihu.com/people/dong-zi-zhen-9
     - name: stackoverflow
-      url: "https://stackoverflow.com"
+      url: "https://stackoverflow.com/users/20061926/tommydzz"
     - name: github
-      url: "https://github.com/"
+      url: "https://github.com/tommydzz"
 
   analytics:
     google:
@@ -98,7 +98,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/tommydzz/tommydzz.github.io/tree/master/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
