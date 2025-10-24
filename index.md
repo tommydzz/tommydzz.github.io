@@ -12,7 +12,7 @@ Hello, my name is Zizhen Dong(Chinese: 董子禛, pronounced: Dǒng Zǐzhēn). I
 ## News
 
 - **[Sept. 2025]** I have accepted an offer from Fudan University to pursue my M.Phil degree starting Fall 2026.
-- **[Jul. 2024]** Working as an AI Software Development intern at SAP Labs China
+- **[Jul. 2024]** Working as an AI Software Development intern at SAP Labs China.
 
 {% comment %}
 {% include_relative _includes/publications.md %}
