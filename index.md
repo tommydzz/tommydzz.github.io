@@ -4,20 +4,21 @@ layout: homepage
 
 ## About Me
 
-I am a Ph.D. student at ...
+I am an incoming M.Phil student of Nebula Group advised by [Prof. Weifeng Ge](https://zyysny.github.io/) at Fudan University. I'm expected to receive my B.Eng. degree in Software Engineering From Fudan University in 2026.
 
 ## Research Interests
 
-- **Computer Vision:** image recognition, image generation, video captioning
-- **Machine Learning:** meta-learning, incremental learning, transfer learning
+- **Embodied Intelligence:** embodied foundation models, VLA models, world models, dexterous manipulation
 
 ## News
 
-- **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
-- **[Feb. 2020]** We will host the ACM Multimedia Asia 2020 conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to NeurIPS 2019.
-- **[Mar. 2019]** Our paper about few-shot learning is accepted to CVPR 2019.
+- **[Sept. 2025]** I have accepted an offer from Fudan University to pursue my M.Phil degree starting Fall 2026.
+- **[Jul. 2024]** Working as an AI Software Development intern at SAP Labs China, which is my first industry experience.
 
+{% comment %}
 {% include_relative _includes/publications.md %}
+{% endcomment %}
 
+{% comment %}
 {% include_relative _includes/services.md %}
+{% endcomment %}
