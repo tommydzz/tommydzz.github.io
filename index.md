@@ -3,8 +3,7 @@ layout: homepage
 ---
 
 ## About Me
-
-I am an incoming M.Phil student of Nebula Group advised by [Prof. Weifeng Ge](https://zyysny.github.io/) at Fudan University. I'm expected to receive my B.Eng. degree in Software Engineering From Fudan University in 2026.
+Hello, my name is Zizhen Dong(Chinese: 董子禛, pronounced: Dǒng Zǐzhēn). I am an incoming M.Phil student of Nebula Group advised by [Prof. Weifeng Ge](https://zyysny.github.io/) at Fudan University. I'm expected to receive my B.Eng. degree in Software Engineering From Fudan University in 2026.
 
 ## Research Interests
 
@@ -13,7 +12,7 @@ I am an incoming M.Phil student of Nebula Group advised by [Prof. Weifeng Ge](ht
 ## News
 
 - **[Sept. 2025]** I have accepted an offer from Fudan University to pursue my M.Phil degree starting Fall 2026.
-- **[Jul. 2024]** Working as an AI Software Development intern at SAP Labs China, which is my first industry experience.
+- **[Jul. 2024]** Working as an AI Software Development intern at SAP Labs China
 
 {% comment %}
 {% include_relative _includes/publications.md %}
